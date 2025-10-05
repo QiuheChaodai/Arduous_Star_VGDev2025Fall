@@ -41,7 +41,7 @@ func callIn(nextStateName:String):
 		#update current state name
 		currentStateName = dict_allStates[index].get_key()
 		#free the current state
-		get_child(0).queue_free()Z
+		get_child(0).queue_free()
 	
 		
 func _findDicIndex(name:String) -> int:

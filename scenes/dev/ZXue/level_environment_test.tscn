@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b56s3jvwgpp1u"]
+[gd_scene load_steps=14 format=3 uid="uid://b56s3jvwgpp1u"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_ewxut"]
 [ext_resource type="Script" uid="uid://727asywd4f55" path="res://scripts/entities/player/debug_player.gd" id="2_m6o0t"]
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="3_f6lcg"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="4_v03w3"]
+[ext_resource type="PackedScene" uid="uid://dikwtund4a5xs" path="res://scenes/dev/ZXue/DynaMite/DynaMite.tscn" id="5_m6o0t"]
 
 [sub_resource type="Environment" id="Environment_bly0l"]
 background_mode = 1
@@ -58,7 +59,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6510315, 0, 2.2056503)
 script = ExtResource("1_ewxut")
 
 [node name="Player" type="CharacterBody3D" parent="PlayerManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6510315, 0, 2.2056503)
+top_level = true
 script = ExtResource("2_m6o0t")
 _movement_speed = 14.0
 
@@ -104,3 +107,7 @@ transform = Transform3D(105.69242, 0, 0, 0, 1, 0, 0, 0, 71.13601, 0, -17, 0)
 material_override = SubResource("StandardMaterial3D_bly0l")
 mesh = SubResource("PlaneMesh_0lut4")
 skeleton = NodePath("../..")
+
+[node name="DynaMite" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("5_m6o0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052405357, 1.0493069, 1.5123453)
+playerRef = NodePath("../PlayerManager/Player")
